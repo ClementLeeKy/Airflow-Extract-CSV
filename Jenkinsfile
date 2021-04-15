@@ -20,7 +20,7 @@ node {
      }
 
      stage ('Run Source-Code in Swarm-Container') {
-           sshCommand remote: remote, command: 'docker exec -it ${swarm_container} bash -c "cd root && python test.py > output.csv"'
+           sshCommand remote: remote, command: 'docker exec -it ${swarm_container} /bin/bash && cd /root && python test.py > output.csv'
      }
 
      stage ('Copy output.csv to desired directory') {
