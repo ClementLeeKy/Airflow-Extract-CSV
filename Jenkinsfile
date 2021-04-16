@@ -25,8 +25,7 @@ node {
      }
      
      stage ('Transfer output.csv from Swarm-Environment into Desktop') {
-          dir ('C:\\Users\\z0048yrk\\Desktop\\COMPLETE POC') {
-          sshGet remote: remote, from: 'output.csv' , into: '/Output-File'
+          sshGet remote: remote, from: 'output.csv' , into: 'C:\\Users\\z0048yrk\\Desktop\\COMPLETE POC\\Output-File'
         }
      }
 
