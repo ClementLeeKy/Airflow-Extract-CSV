@@ -16,7 +16,7 @@ node {
 
      stage ('Copy Source-Code into Swarm-Container') {
            echo "${swarm_container}"
-           sshCommand remote: remote, command: "cd /root && docker cp test.py ${swarm_container}:/src"
+           sshCommand remote: remote, command: "cd /root && docker cp test.py ${swarm_container}:/root"
      }
 
      stage ('Run Source-Code in Swarm-Container') {
