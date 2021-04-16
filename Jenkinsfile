@@ -27,7 +27,6 @@ node {
      stage ('Transfer output.csv from Swarm-Environment into Desktop') {
           sshGet remote: remote, from: 'output.csv' , into: 'C:\\Users\\z0048yrk\\Desktop\\COMPLETE POC\\Output-File'
         }
-     }
 
      stage ('Stop Swarm-Container') {
            sshCommand remote: remote, command: "docker stop ${swarm_container}"
