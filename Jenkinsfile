@@ -20,19 +20,19 @@ node {
      }
 
      stage ('Run Source-Code in Swarm-Container') {
+          //Stage -> SSH command runs Source-Code and extracts output.csv to Swarm Environment from Container
           sshCommand remote: remote, command: "docker exec -w /root ${swarm_container} python test.py > output.csv"
      }
-}
      
-     /*
-     stage ('Copy output.csv to desired directory') {
-           dir ('C:\\Users\\z0048yrk\\Desktop') {
-           sshCommand remote: remote, command: "docker cp ${swarm_container}:/root/output.csv output.csv"
-        }   
+     stage ('Transfer output.csv from Swarm-Environment into Desktop') {
+          dir ('C:\\Users\\z0048yrk\\Desktop\\COMPLETE POC') {
+          sshGet remote: remote, from: 'output.csv' , into: '/Output-File'
+        }
      }
 
      stage ('Stop Swarm-Container') {
            sshCommand remote: remote, command: "docker stop ${swarm_container}"
-     }      
-     */
+     }
+}
+     
 
