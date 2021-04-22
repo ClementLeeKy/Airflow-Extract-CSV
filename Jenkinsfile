@@ -28,12 +28,13 @@ node {
      stage ('Transfer output.csv from Swarm-Environment into Desktop') {
           //Stage -> Move output.csv from Swarm-Environment into Desired Directory in Host Terminal
           sshGet remote: remote, from: 'output.csv' , into: 'C:\\Users\\z0048yrk\\Desktop' , override: true
-        }
-
-     stage ('Stop Swarm-Container') {
-          //Stage -> Stop Swarm Container to keep Swarm Cluster light-weight
-           sshCommand remote: remote, command: "docker stop ${swarm_container}"
      }
 }
+
+//     stage ('Stop Swarm-Container') {
+          //Stage -> Stop Swarm Container to keep Swarm Cluster light-weight
+//           sshCommand remote: remote, command: "docker stop ${swarm_container}"
+//     }
+
      
 
