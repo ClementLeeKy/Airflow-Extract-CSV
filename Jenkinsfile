@@ -1,11 +1,10 @@
 def swarm_container
 
-node {
-     
+node {     
      checkout scm
-     def worker = [:]
-     remote.name = 'Swarm-Worker'
-     remote.host = '10.11.7.120'
+     def remote = [:]
+     remote.name = 'Swarm-Manager'
+     remote.host = '10.11.7.86'
      remote.user = 'docker'
      remote.password = 'tcuser'
      remote.allowAnyHosts = true
